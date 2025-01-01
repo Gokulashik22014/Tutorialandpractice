@@ -1,0 +1,25 @@
+[[source]]
+url = "https://pypi.org/simple"
+verify_ssl = true
+name = "pypi"
+
+[packages]
+sentence-transformers = "*"
+uvicorn = "*"
+ctransformers = "*"
+langchain = "*"
+python-box = "*"
+streamlit = "*"
+langchain-community = "*"
+moviepy = "*"
+openai-whisper = "*"
+pydub = "*"
+whisper = "*"
+torch = "*"
+torchvision = "*"
+torchaudio = "*"
+
+[dev-packages]
+
+[requires]
+python_version = "3.10"

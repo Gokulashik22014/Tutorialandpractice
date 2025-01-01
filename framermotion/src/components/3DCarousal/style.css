@@ -1,0 +1,58 @@
+.banner {
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+  position: relative;
+  text-align: center;
+}
+
+.banner .slider {
+  position: absolute;
+  width: 150px;
+  height: 200px;
+  top: 10%;
+  left: calc(50% - 76px);
+  /*this makes it 3d work  */
+  transform-style: preserve-3d;
+  transform: perspective(1000px);
+  animation: autoRun 20s linear infinite;
+}
+/* the animation for the 3d  */
+@keyframes autoRun {
+  from {
+    transform: perspective(1000px) rotateX(-16deg) rotateY(0deg);
+  }
+  to {
+    transform: perspective(1000px) rotateX(-16deg) rotateY(360deg);
+  }
+}
+
+.banner .slider .item {
+  /* making the things align in 3d */
+  transform: rotateY(calc(var(--position) * (360 / var(--quantity)) * 1deg))
+    translateZ(550px);
+  position: absolute;
+  inset: 0 0 0 0;
+  /* animation: autoRotate 10s linear infinite; */ 
+}
+
+/* @keyframes autoRotate {
+  from {
+    transform: rotateY(calc(var(--position) * (360 / var(--quantity)) * 1deg))
+      translateZ(550px)
+      rotateY(0deg)
+      rotateX(0deg);
+  }
+  to {
+    transform: rotateY(calc(var(--position) * (360 / var(--quantity)) * 1deg))
+      translateZ(550px)
+      rotateY(360deg)
+      rotateX(360deg);
+  }
+} */
+
+.item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}

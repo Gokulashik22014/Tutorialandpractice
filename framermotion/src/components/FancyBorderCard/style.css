@@ -1,0 +1,39 @@
+.card {
+    position: relative;
+    padding: 30px;
+    width: 350px;
+    background-color: #000057;
+    text-align: center;
+    border-radius: 20px;
+}
+@property --angle{
+    syntax: "<angle>";
+    initial-value: 0deg;
+    inherits: false;
+}
+.card::after,.card::before{
+    content: '';
+    position: absolute;
+    background-image: conic-gradient(from var(--angle),red 10%,transparent 40%, blue 70%, transparent 80%);
+    width: calc(100% + 10px); /* Add 30px padding on both sides */
+    height: calc(100% + 10px); /* Add 50px padding on top and bottom */
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); /* Fix transform syntax */
+    z-index: -1;
+    border-radius: 20px;
+    animation: spin 2s linear infinite;
+}
+
+@keyframes spin{
+    from{
+        --angle:0deg;
+    }to{
+        --angle:360deg;
+    }
+}
+
+.card::before{
+    filter: blur(1.5rem);
+    opacity: 0.3;
+}
