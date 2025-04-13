@@ -5,6 +5,6 @@ export const handleAllError:ErrorRequestHandler=(err,res,req,next)=>{
         console.log(err)
         next()
     } catch (error) {
-        console.log("am i running"+error)
+        console.log(error)
     }
 }
