@@ -1,8 +1,9 @@
 import express, { Request, Response } from "express";
 import { handleAllError } from "./middlewares/errorHandler.js";
 import dotenv from "dotenv";
-import userRouter from "./routes/user.js";
+import authRouter from "./routes/auth.js";
 import adminRouter from "./routes/admin.js"
+import userRouter from "./routes/user.js"
 import cors from "cors";
 import mongoose from "mongoose";
 import { auth } from "./middlewares/auth.js";
@@ -16,10 +17,11 @@ app.use(cors());
 
 const PORT: number = parseInt(process.env.PORT as string);
 
-app.use("/api", userRouter);
+app.use("/api/auth", authRouter);
 app.get("/", (req: Request, res: Response) => {
   res.json({ message: "success" });
 });
+app.use("/api/user",auth,userRouter);
 
 app.get("/check",auth,(req:Request,res:Response)=>{
   // console.log(req.user)

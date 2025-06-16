@@ -1,0 +1,38 @@
+.title {
+  position: absolute; /* Required for `top` and `left` to work */
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center; /* Optional for text alignment */
+  color: white;
+}
+
+svg path{
+    fill: transparent;
+    stroke-width: 7;    
+    stroke:rgb(247, 17, 17);
+    stroke-dasharray: 50;
+    stroke-dashoffset: 100;
+    animation: textAnimation 4s ease-in-out 1 forwards;
+}
+svg path:hover{
+    stroke: rgba(19, 187, 244,1);
+}
+@keyframes textAnimation{
+    0%{
+        stroke-dashoffset: 100;
+        stroke:rgb(247, 17, 17);
+        opacity: 0.1;
+    }
+    50%{
+        fill: transparent;
+        stroke:rgba(19, 187, 244,1);
+    }
+    100%{
+        fill: rgb(247, 17, 17);
+        opacity: 0.8;
+        stroke-width: 1;
+        stroke-dashoffset: 0;
+        opacity: 1;
+    }
+}

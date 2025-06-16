@@ -1,9 +1,6 @@
-import express, { Router } from "express"
-import { login, signIn } from "../controllers/user.js"
+import { Router } from "express";
+import { updateUserInfo } from "../controllers/user.js";
 
 const router:Router=Router()
-
-router.route("/sign-in").post(signIn)
-router.route("/login").post(login)
-
+router.route("/update").post(updateUserInfo)
 export default router
